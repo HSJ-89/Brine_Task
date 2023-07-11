@@ -19,57 +19,34 @@ This is a Python application that performs various data analyses and generates r
 
 1. Clone the repository:
 
-   git clone https://github.com/your-username/python-app.git
+   git clone https://github.com/HSJ-89/Brine_Task.git
 
 2. Navigate to the project directory:
 
-   cd python-app-dir
+   cd Brine_Task
 
 
-## Usage
+## Build Docker Image
 
-1. Place your input data file (`orders.csv`) in the project directory.
+3. Run below docker command to build image
 
-2. Run the Python script:
+   docker build -t orders .
 
-   python app.py
+## RUN Docker Image
 
-   This will perform the data analyses and generate the reports.
+4. Run below docker command to run container and exporse ports
 
-3. The generated reports will be displayed in the console.
+   docker run -p 5010:83 -d orders
 
+## Access Appli
 
-```
+5. Access the tasks at http
 
-**README.md:**
+   http://localhost:5010/orders
 
-```markdown
-# Python App
+6. Access the test at http
 
-This is a Python application that performs various data analyses and generates reports based on input data.
-
-## Requirements
-
-- Docker
-
-## Usage
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/python-app.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd python-app
-   ```
-
-3. Build the Docker image:
-
-   docker build -t python-app .
-
+   http://localhost:5010/tests
 
 
 
