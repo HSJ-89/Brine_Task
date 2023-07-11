@@ -58,7 +58,8 @@ def test_revenue_calculations(orders):
     return("All revenue calculations passed!")
 
 @app.route('/orders', endpoint='orders', methods=["POST", "GET"])
-@app.route('/test', endpoint='test', methods=["POST", "GET"])
+@app.route('/tests', endpoint='tests', methods=["POST", "GET"])
+@app.route('/', endpoint='', methods=["POST", "GET"])
 def index():
     if request.endpoint == 'orders':
         orders = read_csv_file()
@@ -67,9 +68,11 @@ def index():
         customer_revenue = compute_customer_revenue(orders)
         top_10_customers = get_top_10_customers(customer_revenue)
         return render_template('index.html', monthly_revenue=monthly_revenue, product_revenue=product_revenue, customer_revenue=customer_revenue, top_10_customers=top_10_customers)
-    elif request.endpoint == 'test':
+    elif request.endpoint == 'tests':
          orders = read_csv_file()
          unit_tests = test_revenue_calculations(orders)
          return (unit_tests)
+    elif request.endpoint == '':
+         return render_template('init.html')
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 83, debug=True)
