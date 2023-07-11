@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store Revenue</title>
+</head>
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    </style>
+<body>
+    <h1>Monthly Revenue</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for month, revenue in monthly_revenue.items() %}
+                <tr>
+                    <td>{{ month }}</td>
+                    
+                    <td>{{ revenue }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Product Revenue</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product, revenue in product_revenue.items() %}
+                <tr>
+                    <td>{{ product }}</td>
+                    <td>{{ revenue }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Customer Revenue</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer, revenue in customer_revenue.items() %}
+                <tr>
+                    <td>{{ customer }}</td>
+                    <td>{{ revenue }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Top 10 Customers by Revenue</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer, revenue in top_10_customers %}
+                <tr>
+                    <td>{{ customer }}</td>
+                    <td>{{ revenue }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
